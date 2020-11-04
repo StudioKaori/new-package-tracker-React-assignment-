@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import TrackHome from './components/TrackHome';
+import TrackingResults from './components/TrackingResults';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
         <h1>react</h1>
         <Switch>
           <Route path="/" exact component={TrackHome} />
+          <Route path="/results" component={TrackingResults} />
         </Switch>
       </div>
     </Router>
