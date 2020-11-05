@@ -1,41 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Card({ parcelid, data }) {
   console.log("Card");
   console.log("parcelid :", parcelid);
   console.log("data :", data);
+  console.log("findMatchedParcels :", findMatchedParcels());
 
   // check parcelId is valid number
   //if (Number.isInteger(parcelId)) setStatus(2);
 
-  /*
   function findMatchedParcels() {
-    if (information.length !== 0) {
-      //Filter data by IDs
-      const filteredParcels = information.filter((parcel) => {
-        return parcel.parcel_id === parcelId;
-      });
-
-      setMatchedParcels(filteredParcels);
-
-      console.log("Filter data");
-      console.log("filteredParcels :", filteredParcels);
-
-      //Set status ready(1)
-      setStatus(1);
-    }
+    return data.find((item) => item.parcel_id === parcelid);
   }
 
-  useEffect(() => {
-    console.log("tracking results");
-    console.log("parcelId :", parcelId);
-
-    console.log("information results");
-    console.log("information :", information);
-    findMatchedParcels();
-  }, []);
-*/
-
+  /*
   const {
     parcel_id,
     last_updated,
@@ -52,11 +30,12 @@ export default function Card({ parcelid, data }) {
     user_name,
     notes,
   } = data[0];
+    console.log("Card : ", user_name);
 
-  console.log("Card : ", user_name);
+*/
 
   return (
-    <div>
+    <div className="card">
       <h2>Card</h2>
     </div>
   );
