@@ -27,10 +27,13 @@ export default function TrackingResult() {
 
     getData();
   }, []);
+
   return (
     <div>
       <h1>Tracking result</h1>
-      <Card key="0" data={information[0]} />
+      {status === 0 ? <p>Loading...</p> : null}
+      {status === 1 ? <Card key="0" data={information[0]} /> : null}
+      {status === 2 ? <p>The tracking ID is not exist.</p> : null}
     </div>
   );
 }
