@@ -8,6 +8,7 @@ import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { langState } from "../js/state-information";
 
 import Card from "./parts/Card";
+import Header from "./parts/Header";
 // todo replace fake db to real
 import Data from "../PackageTrackingData.json";
 
@@ -70,6 +71,7 @@ export default function TrackingResults({ match }) {
 
   return (
     <div>
+      <Header />
       <h1>{t("Tracking result")}</h1>
       {/* Todo, show seach box */}
 
