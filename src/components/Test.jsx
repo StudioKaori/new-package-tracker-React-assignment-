@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import Card from './parts/Card';
+import Data from '../PackageTrackingData.json';
 
-export default function TrackingResult({ match }) {
+export default function Test({ match }) {
   const parcelId = match.params.query;
 
   // loading status, 0= loading, 1=ready, 2= invalid id error, 3=loading error
@@ -10,7 +11,7 @@ export default function TrackingResult({ match }) {
 
   // todo change to bellow later
   //const [information, setInformation] = useState(rawInformation);
-  const [information, setInformation] = useState([]);
+  const [information, setInformation] = useState(Data);
 
   const [matchedParcels, setMatchedParcels] = useState([]);
 
@@ -20,8 +21,11 @@ export default function TrackingResult({ match }) {
   console.log('information results');
   console.log('information :', information);
 
+  console.log('jsondata :', Data);
+
   const endpoint = 'https://my.api.mockaroo.com/orders.json?key=e49e6840';
 
+  /*
   useEffect(() => {
     const getData = async () => {
       try {
@@ -42,11 +46,12 @@ export default function TrackingResult({ match }) {
     getData();
   }, []);
 
+  */
+
   useEffect(() => {
     if (information.length !== 0) {
       //Filter data by IDs
       const filteredParcels = information.filter((parcel) => {
-        console.log(parcel.parcel_id);
         return parcel.parcel_id === parcelId;
       });
 
@@ -58,7 +63,7 @@ export default function TrackingResult({ match }) {
       //Set status ready(1)
       setStatus(1);
     }
-  }, [information, parcelId]);
+  }, []);
 
   return (
     <div>
