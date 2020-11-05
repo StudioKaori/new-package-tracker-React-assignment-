@@ -1,9 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import TrackHome from './components/TrackHome';
-import TrackingResults from './components/TrackingResults';
-import Test from './components/Test';
+import TrackHome from "./components/TrackHome";
+import TrackingResults from "./components/TrackingResults";
 
 export default function App() {
   return (
@@ -14,7 +13,7 @@ export default function App() {
           <Route path="/" exact component={TrackHome} />
           <Route
             path="/results/:query"
-            render={({ match }) => <Test match={match} />}
+            render={({ match }) => <TrackingResults match={match} />}
           />
         </Switch>
       </div>
