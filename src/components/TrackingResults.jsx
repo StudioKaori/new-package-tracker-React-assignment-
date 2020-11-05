@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 // for multi-lang support
 import { userTranslation, useTranslation } from "react-i18next";
+
+//recoil library
+import { atom, useRecoilState, useRecoilValue } from "recoil";
+import { langState } from "../js/state-information";
 
 import Card from "./parts/Card";
 // todo replace fake db to real
@@ -11,7 +16,7 @@ export default function TrackingResults({ match }) {
 
   // for multi-lang support
   const [t, i18n] = useTranslation();
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useRecoilState(langState);
 
   // todo set0 when fake db is replaced
   // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
