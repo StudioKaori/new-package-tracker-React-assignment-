@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Card from './parts/Card';
-import Data from '../PackageTrackingData.json';
+import Card from "./parts/Card";
+import Data from "../PackageTrackingData.json";
 
 export default function Test({ match }) {
-  const parcelId = match.params.query;
-
   // loading status, 0= loading, 1=ready, 2= invalid id error, 3=loading error
   const [status, setStatus] = useState(0);
 
-  // todo change to bellow later
-  //const [information, setInformation] = useState(rawInformation);
+  const parcelId = match.params.query;
+  // check parcelId is valid number
+  if (Number.isInteger(parcelId)) setStatus(2);
+
+  // todo empty useState later
   const [information, setInformation] = useState(Data);
 
   const [matchedParcels, setMatchedParcels] = useState([]);
 
-  console.log('tracking results');
-  console.log('parcelId :', parcelId);
-
-  console.log('information results');
-  console.log('information :', information);
-
-  console.log('jsondata :', Data);
-
-  const endpoint = 'https://my.api.mockaroo.com/orders.json?key=e49e6840';
+  const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
 
   /*
   useEffect(() => {
@@ -48,7 +41,7 @@ export default function Test({ match }) {
 
   */
 
-  useEffect(() => {
+  function findMatchedParcels() {
     if (information.length !== 0) {
       //Filter data by IDs
       const filteredParcels = information.filter((parcel) => {
@@ -57,12 +50,21 @@ export default function Test({ match }) {
 
       setMatchedParcels(filteredParcels);
 
-      console.log('Filter data');
-      console.log('filteredParcels :', filteredParcels);
+      console.log("Filter data");
+      console.log("filteredParcels :", filteredParcels);
 
       //Set status ready(1)
       setStatus(1);
     }
+  }
+
+  useEffect(() => {
+    console.log("tracking results");
+    console.log("parcelId :", parcelId);
+
+    console.log("information results");
+    console.log("information :", information);
+    findMatchedParcels();
   }, []);
 
   return (
@@ -70,7 +72,7 @@ export default function Test({ match }) {
       <h1>Tracking result</h1>
       {status === 0 ? <p>Loading...</p> : null}
       {status === 1 ? <Card key={parcelId} data={matchedParcels[0]} /> : null}
-      {status === 2 ? <p>The tracking ID is not exist.</p> : null}
+      {status === 2 ? <p>The tracking ID does not exist.</p> : null}
     </div>
   );
 }
