@@ -5,24 +5,29 @@ import Data from "../PackageTrackingData.json";
 
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
-  console.log("Data :", Data);
 
   // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
   const [status, setStatus] = useState(1);
+
+  // if query is empty
+  const query = match.params.query;
+  if (query === "" || query === null) {
+    setStatus(2);
+  }
 
   // todo empty useState later
   const [information, setInformation] = useState(Data);
   //const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
 
+  // Create pacelIDs array, split by ","
   let parcelIDs;
-  if (match.params.query !== "" && match.params.query !== null) {
-    // Create pacelIDs array
-    parcelIDs = match.params.query.split("%2C");
+  if (query !== "" && query !== null) {
+    parcelIDs = query.split("%2C");
   } else {
     setStatus(2);
   }
 
-  console.log("parcelIDs: ", parcelIDs);
+  //console.log("parcelIDs: ", parcelIDs);
 
   const [cards, setCards] = useState(
     parcelIDs.map((parcelid) => (
@@ -60,7 +65,9 @@ export default function TrackingResults({ match }) {
       Otherwise display error.       */}
       {status === 0 ? <p>Loading...</p> : null}
       {status === 1 ? cards : null}
-      {status === 2 ? <p>Data loading error. Please try agai later.</p> : null}
+      {/* Todo, show seach box */}
+      {status === 2 ? <p>Query is empty. show serch box.</p> : null}
+      {status === 3 ? <p>Data loading error. Please try agai later.</p> : null}
     </div>
   );
 }
