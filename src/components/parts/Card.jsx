@@ -44,7 +44,7 @@ export default function Card({ parcelData }) {
   } else {
     return (
       <div className="card">
-        <h2>{parcelid} does not exist.</h2>
+        <h2>Package does not exist.</h2>
       </div>
     );
   }

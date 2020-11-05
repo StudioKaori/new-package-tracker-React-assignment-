@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import TrackHome from "./components/TrackHome";
+import Login from "./components/Login";
 import TrackingResults from "./components/TrackingResults";
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <div>
         <h1>react</h1>
         <Switch>
-          <Route path="/" exact component={TrackHome} />
+          <Route path="/" exact component={Login} />
           <Route
             path="/results/:query"
             render={({ match }) => <TrackingResults match={match} />}
