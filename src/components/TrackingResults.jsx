@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// for multi-lang support
+import { userTranslation, useTranslation } from "react-i18next";
 
 import Card from "./parts/Card";
 // todo replace fake db to real
@@ -6,6 +8,10 @@ import Data from "../PackageTrackingData.json";
 
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
+
+  // for multi-lang support
+  const [t, i18n] = useTranslation();
+  const [lang, setLang] = useState("en");
 
   // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
   const [status, setStatus] = useState(1);
@@ -60,14 +66,21 @@ export default function TrackingResults({ match }) {
 
   */
 
+  // for multi-lang support
+  useEffect(() => {
+    console.log(lang);
+    i18n.changeLanguage(lang);
+  }, [lang, i18n]);
+
   return (
     <div>
-      <h1>Tracking result</h1>
+      <h1>{t("Tracking result")}</h1>
+      {/* Todo, show seach box */}
+
       {/* if status is ready(1), display multiple cards.
       Otherwise display error.       */}
       {status === 0 ? <p>Loading...</p> : null}
       {status === 1 ? cards : null}
-      {/* Todo, show seach box */}
       {status === 2 ? <p>Query is empty. show serch box.</p> : null}
       {status === 3 ? <p>Data loading error. Please try agai later.</p> : null}
     </div>
