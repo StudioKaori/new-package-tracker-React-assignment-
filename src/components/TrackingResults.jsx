@@ -25,7 +25,9 @@ export default function TrackingResults({ match }) {
   console.log("parcelIDs: ", parcelIDs);
 
   const [cards, setCards] = useState(
-    parcelIDs.map((item) => <Card key={item} data={information} />)
+    parcelIDs.map((parcelid) => (
+      <Card key={parcelid} parcelid={parcelid} data={information} />
+    ))
   );
 
   /*

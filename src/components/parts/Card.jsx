@@ -1,7 +1,8 @@
 import React from "react";
 
-export default function Card({ data }) {
-  console.log("Card :");
+export default function Card({ parcelid, data }) {
+  console.log("Card");
+  console.log("parcelid :", parcelid);
   console.log("data :", data);
 
   // check parcelId is valid number
