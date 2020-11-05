@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Card from "./parts/Card";
+// todo replace fake db to real
 import Data from "../PackageTrackingData.json";
 
 export default function TrackingResults({ match }) {
@@ -9,13 +10,13 @@ export default function TrackingResults({ match }) {
   // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
   const [status, setStatus] = useState(1);
 
-  // if query is empty
+  // if query is empty, set error
   const query = match.params.query;
   if (query === "" || query === null) {
     setStatus(2);
   }
 
-  // todo empty useState later
+  // todo remove param 'data' from useState later, useState(), param should be empty
   const [information, setInformation] = useState(Data);
   //const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
 
@@ -27,14 +28,15 @@ export default function TrackingResults({ match }) {
     setStatus(2);
   }
 
-  //console.log("parcelIDs: ", parcelIDs);
-
+  // todo change to useState([]), after replace fake DB
+  //inside of useeffect, setcard.
   const [cards, setCards] = useState(
     parcelIDs.map((parcelid) => (
       <Card key={parcelid} parcelid={parcelid} data={information} />
     ))
   );
 
+  // todo replace fake db to real
   /*
   useEffect(() => {
     const getData = async () => {
