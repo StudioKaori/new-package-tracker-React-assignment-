@@ -13,33 +13,24 @@ export default function TrackingResults({ match }) {
   const [t, i18n] = useTranslation();
   const [lang, setLang] = useState("en");
 
+  // todo set0 when fake db is replaced
   // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
   const [status, setStatus] = useState(1);
 
   // if query is empty, set error
-  const query = match.params.query;
-  if (query === "" || query === null) {
-    setStatus(2);
-  }
+  // const query = match.params.query;
+  // if (query === "" || query === null) {
+  //   setStatus(2);
+  // }
 
   // todo remove param 'data' from useState later, useState(), param should be empty
   const [information, setInformation] = useState(Data);
   //const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
 
-  // Create pacelIDs array, split by ","
-  let parcelIDs;
-  if (query !== "" && query !== null) {
-    parcelIDs = query.split("%2C");
-  } else {
-    setStatus(2);
-  }
-
   // todo change to useState([]), after replace fake DB
   //inside of useeffect, setcard.
   const [cards, setCards] = useState(
-    parcelIDs.map((parcelid) => (
-      <Card key={parcelid} parcelid={parcelid} data={information} />
-    ))
+    information.map((parcel) => <Card key={parcel.id} parcelData={parcel} />)
   );
 
   // todo replace fake db to real

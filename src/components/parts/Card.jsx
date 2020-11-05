@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-
-export default function Card({ parcelid, data }) {
+export default function Card({ parcelData }) {
   console.log("Card");
-  console.log("parcelid :", parcelid);
-  console.log("data :", data);
+  console.log("parcelData :", parcelData);
 
-  // check parcelId is valid number
-  //if (Number.isInteger(parcelId)) setStatus(2);
-
-  const matchedParcel = data.find((item) => item.parcel_id === parcelid);
-
-  console.log("matchedParcel :", matchedParcel);
-
-  if (typeof matchedParcel !== "undefined") {
+  if (typeof parcelData !== "undefined") {
     const {
       parcel_id,
       last_updated,
@@ -28,7 +18,7 @@ export default function Card({ parcelid, data }) {
       user_phone,
       user_name,
       notes,
-    } = matchedParcel;
+    } = parcelData;
 
     return (
       <div className="card">
