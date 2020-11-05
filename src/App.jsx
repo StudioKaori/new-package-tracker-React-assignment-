@@ -11,10 +11,11 @@ export default function App() {
         <h1>react</h1>
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route
+          <Route path="/results" component={TrackingResults} />
+          {/* <Route
             path="/results/:query"
             render={({ match }) => <TrackingResults match={match} />}
-          />
+          /> */}
         </Switch>
       </div>
     </Router>
