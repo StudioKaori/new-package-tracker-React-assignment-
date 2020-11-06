@@ -4,11 +4,42 @@ import { langState } from "../../js/state-information";
 
 export default function Header() {
   const [lang, setLang] = useRecoilState(langState);
-  console.log("Header");
+
+  // for navigation drawer
+  const mySidenav = document.getElementById("mySidenav");
+
+  window.addEventListener(
+    "resize",
+    function () {
+      resizeNav();
+    },
+    false
+  );
+
+  window.addEventListener(
+    "load",
+    function () {
+      resizeNav();
+    },
+    false
+  );
+
+  function resizeNav() {
+    if (window.innerWidth >= 750) {
+      mySidenav.style.width = "100%";
+      mySidenav.classList.add("header-menu-PC");
+    } else if (window.innerWidth < 750) {
+      mySidenav.style.width = "0";
+      mySidenav.classList.remove("header-menu-PC");
+    }
+  }
 
   function openNav() {
-    console.log("openNav");
-    document.getElementById("mySidenav").innerHTML = "ye";
+    mySidenav.style.width = "250px";
+  }
+
+  function closeNav() {
+    mySidenav.style.width = "0";
   }
 
   return (
@@ -31,7 +62,9 @@ export default function Header() {
             <div className="pc-icon">
               <i className="fas fa-globe"></i>
             </div>
-            <a>&times;</a>
+            <span className="closebtn" onClick={() => closeNav()}>
+              &times;
+            </span>
             <ul>
               <li onClick={() => setLang("en")}>
                 <a href="index.html" target="_self" id="checked">

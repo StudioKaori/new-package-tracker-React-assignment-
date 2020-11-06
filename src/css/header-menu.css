@@ -47,12 +47,14 @@ h1{
   text-transform: uppercase;
 }
 
+
 .header-menu .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  cursor: pointer;
 }
 
 .mobile-menu {
