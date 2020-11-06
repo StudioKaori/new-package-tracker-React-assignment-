@@ -1,0 +1,84 @@
+.content{
+  margin: 0 10px;
+}
+.content h3 i {
+  margin-right: 7px;
+}
+
+.content .content-wrapper {
+  display: grid;
+}
+
+.content .content-wrapper article {
+  margin-bottom: 30px;
+}
+
+.package{
+  background-color:  var(--bg-dark-light);
+  border-radius: var(--h-radius);
+  color: var(--font-light);
+}
+
+.package .package-status{
+  width: fit-content;
+  margin: 30px auto;
+}
+
+.package-status-text{
+  font-family: 'Black Ops One', cursive;
+  color: var(--accent-color-light);
+  text-align: center;
+  font-size: var(--font-L);
+  margin-bottom: 10px;
+}
+
+.package .package-status span{
+  background-color: #9c9c9c;
+  border-radius: 100%;
+  color: var( --font-light);
+  display: inline-block;
+  font-size: 30px;
+  height: 60px;
+  line-height: 60px;
+  margin: auto 5px;
+  text-align: center;
+  width: 60px;
+}
+
+.package .package-status .done{
+  background-color: var(--accent-color-light);
+}
+
+.package-details-wrapper{
+  margin: 15px 0;
+}
+
+.package-details{
+  width: 100%;
+}
+
+.package-details td{
+  padding: 5px;
+}
+
+.package-details .col2{
+  background-color: #666666;
+}
+
+
+
+/* Tablet */
+
+@media (min-width: 550px) {
+  .content .content-wrapper {
+    column-gap: 20px;
+  }
+}
+
+/* laptop */
+
+@media (min-width: 750px) {
+  .content .content-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}

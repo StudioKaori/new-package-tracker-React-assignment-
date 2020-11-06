@@ -1,0 +1,20 @@
+:root {
+  --accent-color-dark: #726700;
+  --accent-color-light: #E87461;
+  --accent-color: #ffffff;
+  --box-shadow-PC: 0 0 10px #44444454;
+  --brand-color:#F2F230;
+  --bg-dark-light: #525252;
+  --font-dark-light: #525252;
+  --font-dark: #3D5467;
+  --font-light: #e7e7e7;
+  --font-L: 18px;
+  --font-M: 14px;
+  --font-S: 12px;
+  --font-XL: 38px;
+  --font-XS: 10px;
+  --section-bg-color: #ededef;
+  --section-margin: 30px;
+  --section-radius: 5px;
+  --h-radius: 20px;
+}

@@ -1,0 +1,94 @@
+/* This file is for common style of the webpage. */
+
+/* company logo font */
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+
+body {
+  color: var(--font-dark);
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-M);
+  margin: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-image: url("../assets/trackhome-bg.jpg");
+  background-color: #000000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-family: 'Black Ops One', cursive;
+  color: var(--brand-color);
+}
+
+h1 i{
+  padding-left: 8px;
+}
+
+h2 {
+  font-family: 'Black Ops One', cursive;
+  color: var(--accent-color);
+}
+
+
+h3 {
+  font-family: 'Black Ops One', cursive;
+  color: var(--accent-color);
+  font-size: var(--font-M);
+  background-color: var(--accent-color-dark);
+  border-radius: var(--h-radius);
+  display: block;
+  padding: 8px 15px;
+}
+
+.section-margin {
+  width: 80%;
+  margin: auto;
+}
+
+.box-shadow-block {
+  background-color: #ffffffde;
+  box-shadow: var(--box-shadow-PC);
+  border-radius: var(--section-radius);
+  padding: 20px;
+}
+
+/* floating email button */
+
+.floating-email-btn {
+  background-color: var(--accent-color-dark);
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  line-height: 40px;
+  box-shadow: var(--box-shadow-PC);
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.floating-email-btn a {
+  color: var( --accent-color);
+}
+
+/* reset user agent stylesheet */
+
+ul {
+  padding-inline-start: 0;
+}
+
+@media (min-width: 750px) {
+  .body_wrapper {
+    margin: auto;
+    width: 800px;
+  }
+}
