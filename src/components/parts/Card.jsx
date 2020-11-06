@@ -56,33 +56,35 @@ export default function Card({ parcelData }) {
 
         <div className="package-details-wrapper">
           <table className="package-details">
-            <tr>
-              <td>Last update</td>
-              <td>2020-04-03 14:55</td>
-            </tr>
-            <tr className="col2">
-              <td>ETA</td>
-              <td>2020-04-03 14:55</td>
-            </tr>
-            <tr>
-              <td>Sender</td>
-              <td>Kaori Persson</td>
-            </tr>
-            <tr className="col2">
-              <td>Location</td>
-              <td>
-                Packers <i className="fas fa-map-marker-alt"></i>
-                <a>Map</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Verification</td>
-              <td>Required</td>
-            </tr>
-            <tr className="col2">
-              <td>Notes</td>
-              <td>Comment</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>Last update</td>
+                <td>2020-04-03 14:55</td>
+              </tr>
+              <tr className="col2">
+                <td>ETA</td>
+                <td>2020-04-03 14:55</td>
+              </tr>
+              <tr>
+                <td>Sender</td>
+                <td>Kaori Persson</td>
+              </tr>
+              <tr className="col2">
+                <td>Location</td>
+                <td>
+                  Packers <i className="fas fa-map-marker-alt"></i>
+                  <a>Map</a>
+                </td>
+              </tr>
+              <tr>
+                <td>Verification</td>
+                <td>Required</td>
+              </tr>
+              <tr className="col2">
+                <td>Notes</td>
+                <td>Comment</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </article>

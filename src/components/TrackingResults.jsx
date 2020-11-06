@@ -12,6 +12,7 @@ import Header from "./parts/Header";
 // todo replace fake db to real
 import Data from "../PackageTrackingData.json";
 
+// import css
 import "../css/style.css";
 
 export default function TrackingResults({ match }) {
@@ -75,9 +76,9 @@ export default function TrackingResults({ match }) {
     <div>
       <Header />
 
-      <div class="body_wrapper">
-        <header class="introduction">
-          <div class="header_textbox">
+      <div className="body_wrapper">
+        <header className="introduction">
+          <div className="header_textbox">
             <h2>
               Welcome,
               <br />
@@ -86,8 +87,8 @@ export default function TrackingResults({ match }) {
           </div>
         </header>
 
-        <section class="content">
-          <div class="content-wrapper">
+        <section className="content">
+          <div className="content-wrapper">
             {/* cards */}
             {/* if status is ready(1), display multiple cards.
       Otherwise display error.       */}

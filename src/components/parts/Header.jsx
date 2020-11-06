@@ -6,6 +6,11 @@ export default function Header() {
   const [lang, setLang] = useRecoilState(langState);
   console.log("Header");
 
+  function openNav() {
+    console.log("openNav");
+    document.getElementById("mySidenav").innerHTML = "ye";
+  }
+
   return (
     <nav>
       <div className="header-menu-bg">
@@ -17,7 +22,7 @@ export default function Header() {
           </div>
 
           <div className="mobile-menu">
-            <span onclick="openNav()">
+            <span onClick={() => openNav()}>
               <i className="fas fa-globe"></i>
             </span>
           </div>
