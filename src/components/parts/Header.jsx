@@ -26,10 +26,8 @@ export default function Header() {
 
   function resizeNav() {
     if (window.innerWidth >= 750) {
-      mySidenav.style.width = "100%";
       mySidenav.classList.add("header-menu-PC");
     } else if (window.innerWidth < 750) {
-      mySidenav.style.width = "0";
       mySidenav.classList.remove("header-menu-PC");
     }
   }

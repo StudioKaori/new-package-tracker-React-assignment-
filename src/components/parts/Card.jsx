@@ -36,10 +36,10 @@ export default function Card({ parcelData }) {
     return (
       <article className="package">
         <h3>
-          <i className="fas fa-box"></i>Package ID: 3501
+          <i className="fas fa-box"></i>Package ID: {parcel_id}
         </h3>
         <div className="package-status">
-          <div className="package-status-text">order-info-received</div>
+          <div className="package-status-text">{status}</div>
           <span className="done">
             <i className="fas fa-file-upload"></i>
           </span>
@@ -59,30 +59,32 @@ export default function Card({ parcelData }) {
             <tbody>
               <tr>
                 <td>Last update</td>
-                <td>2020-04-03 14:55</td>
+                <td>{formattedLastUpdate}</td>
               </tr>
               <tr className="col2">
                 <td>ETA</td>
-                <td>2020-04-03 14:55</td>
+                <td>{formattedETA}</td>
               </tr>
               <tr>
                 <td>Sender</td>
-                <td>Kaori Persson</td>
+                <td>{sender}</td>
               </tr>
               <tr className="col2">
                 <td>Location</td>
                 <td>
-                  Packers <i className="fas fa-map-marker-alt"></i>
-                  <a>Map</a>
+                  {location_name} <i className="fas fa-map-marker-alt"></i>
+                  <a href={mapURL} target="_blank">
+                    Map
+                  </a>
                 </td>
               </tr>
               <tr>
                 <td>Verification</td>
-                <td>Required</td>
+                <td>{verification_required ? "Required" : "Not required"}</td>
               </tr>
               <tr className="col2">
                 <td>Notes</td>
-                <td>Comment</td>
+                <td>{notes}</td>
               </tr>
             </tbody>
           </table>
