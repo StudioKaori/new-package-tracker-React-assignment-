@@ -10,7 +10,6 @@ export default function App() {
     <Router>
       <RecoilRoot>
         <div>
-          <h1>react</h1>
           <Switch>
             <Route path="/" exact component={Login} />
             <Route path="/results" component={TrackingResults} />

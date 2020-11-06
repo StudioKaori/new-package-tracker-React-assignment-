@@ -34,30 +34,58 @@ export default function Card({ parcelData }) {
       ",16z";
 
     return (
-      <div className="card">
-        <h2>{parcel_id}</h2>
-        <ul>
-          <li>{parcel_id}</li>
-          <li>{formattedLastUpdate}</li>
-          <li>{status}</li>
-          <li>{formattedETA}</li>
-          <li>{sender}</li>
-          <li>{verification_required}</li>
-          <li>{location_id}</li>
-          <li>{location_name}</li>
-          <li>
-            <a href={mapURL} target="_blank">
-              Map
-            </a>
-          </li>
-          <li>{location_coordinate_latitude}</li>
-          <li>{location_coordinate_longitude}</li>
-          <li>{location_status_ok}</li>
-          <li>{user_phone}</li>
-          <li>{user_name}</li>
-          <li>{notes}</li>
-        </ul>
-      </div>
+      <article className="package">
+        <h3>
+          <i className="fas fa-box"></i>Package ID: 3501
+        </h3>
+        <div className="package-status">
+          <div className="package-status-text">order-info-received</div>
+          <span className="done">
+            <i className="fas fa-file-upload"></i>
+          </span>
+          <span>
+            <i className="fas fa-shipping-fast"></i>
+          </span>
+          <span>
+            <i className="far fa-check-circle"></i>
+          </span>
+          <span>
+            <i className="fas fa-check-circle"></i>
+          </span>
+        </div>
+
+        <div className="package-details-wrapper">
+          <table className="package-details">
+            <tr>
+              <td>Last update</td>
+              <td>2020-04-03 14:55</td>
+            </tr>
+            <tr className="col2">
+              <td>ETA</td>
+              <td>2020-04-03 14:55</td>
+            </tr>
+            <tr>
+              <td>Sender</td>
+              <td>Kaori Persson</td>
+            </tr>
+            <tr className="col2">
+              <td>Location</td>
+              <td>
+                Packers <i className="fas fa-map-marker-alt"></i>
+                <a>Map</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Verification</td>
+              <td>Required</td>
+            </tr>
+            <tr className="col2">
+              <td>Notes</td>
+              <td>Comment</td>
+            </tr>
+          </table>
+        </div>
+      </article>
     );
   } else {
     return (

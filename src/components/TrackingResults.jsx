@@ -12,6 +12,8 @@ import Header from "./parts/Header";
 // todo replace fake db to real
 import Data from "../PackageTrackingData.json";
 
+import "../css/style.css";
+
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
 
@@ -72,15 +74,33 @@ export default function TrackingResults({ match }) {
   return (
     <div>
       <Header />
-      <h1>{t("Tracking result")}</h1>
-      {/* Todo, show seach box */}
 
-      {/* if status is ready(1), display multiple cards.
+      <div class="body_wrapper">
+        <header class="introduction">
+          <div class="header_textbox">
+            <h2>
+              Welcome,
+              <br />
+              Kaori Persson
+            </h2>
+          </div>
+        </header>
+
+        <section class="content">
+          <div class="content-wrapper">
+            {/* cards */}
+            {/* if status is ready(1), display multiple cards.
       Otherwise display error.       */}
-      {status === 0 ? <p>Loading...</p> : null}
-      {status === 1 ? cards : null}
-      {status === 2 ? <p>Query is empty. show serch box.</p> : null}
-      {status === 3 ? <p>Data loading error. Please try agai later.</p> : null}
+
+            {status === 0 ? <p>Loading...</p> : null}
+            {status === 1 ? cards : null}
+            {status === 2 ? <p>Query is empty. show serch box.</p> : null}
+            {status === 3 ? (
+              <p>Data loading error. Please try agai later.</p>
+            ) : null}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
