@@ -61,17 +61,34 @@ export default function Card({ parcelData }) {
       false
     );
 
-    // no break between cases on parpose, since I want to color all of imgs.
+    function addClassToElements(...args) {
+      args.forEach((element) => {
+        document.getElementById(element).classList.add("done");
+      });
+    }
+
     function changeStatusImgs() {
       switch (status) {
         case "delivered":
-          document.getElementById(deliveryStatus4ID).classList.add("done");
+          addClassToElements(
+            deliveryStatus1ID,
+            deliveryStatus2ID,
+            deliveryStatus3ID,
+            deliveryStatus4ID
+          );
+          break;
         case "ready-for-pickup":
-          document.getElementById(deliveryStatus3ID).classList.add("done");
+          addClassToElements(
+            deliveryStatus1ID,
+            deliveryStatus2ID,
+            deliveryStatus3ID
+          );
+          break;
         case "on-the-way":
-          document.getElementById(deliveryStatus2ID).classList.add("done");
+          addClassToElements(deliveryStatus1ID, deliveryStatus2ID);
+          break;
         default:
-          document.getElementById(deliveryStatus1ID).classList.add("done");
+          addClassToElements(deliveryStatus1ID);
           break;
       }
     }
