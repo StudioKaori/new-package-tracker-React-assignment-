@@ -38,21 +38,17 @@ export default function Login() {
       <div className="body_wrapper">
         <header className="introduction">
           <div className="header_textbox">
-            <h2>
-              {t("Welcome")},
-              <br />
-              Kaori Persson
-            </h2>
+            <h2>{t("Package Tracker")}</h2>
 
-            <label>Name</label>
+            <label>{t("Name")}</label>
             <input
-              placeholder="Search"
+              placeholder={t("Name")}
               value={query}
               // when the value in search box changed, update to new value by setQuery
               onChange={(event) => setQuery(event.target.value)}
             />
             {/* add query to the url */}
-            <Link to={`/results/${query}`}>Search</Link>
+            <Link to={`/results/${query}`}>{t("Search")}</Link>
           </div>
         </header>
       </div>

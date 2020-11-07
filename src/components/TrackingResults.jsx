@@ -18,7 +18,7 @@ import "../css/style.css";
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
 
-  const userName = removeSpaceAndlower(match.params.query);
+  const userName = match.params.query;
   console.log("userName:", userName);
 
   // for multi-lang support
@@ -43,7 +43,11 @@ export default function TrackingResults({ match }) {
   //inside of useeffect, setcard.
   const [cards, setCards] = useState(
     information
-      .filter((parcel) => removeSpaceAndlower(parcel.user_name) === userName)
+      .filter(
+        (parcel) =>
+          removeSpaceAndlower(parcel.user_name) ===
+          removeSpaceAndlower(userName)
+      )
       .map((parcel) => <Card key={parcel.id} parcelData={parcel} />)
   );
 
@@ -92,7 +96,7 @@ export default function TrackingResults({ match }) {
             <h2>
               {t("Welcome")},
               <br />
-              Kaori Persson
+              {userName}
             </h2>
           </div>
         </header>
@@ -105,7 +109,7 @@ export default function TrackingResults({ match }) {
 
             {status === 0 ? <p>Loading...</p> : null}
             {status === 1 ? cards : null}
-            {status === 2 ? <p>Query is empty. show serch box.</p> : null}
+            {status === 2 ? <p>Please input your name again.</p> : null}
             {status === 3 ? (
               <p>Data loading error. Please try again later.</p>
             ) : null}
