@@ -1,3 +1,4 @@
+import React, { useLayoutEffect } from "react";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 import { langState } from "../../js/state-information";
@@ -6,8 +7,6 @@ export default function Header() {
   const [lang, setLang] = useRecoilState(langState);
 
   // for navigation drawer
-  const mySidenav = document.getElementById("mySidenav");
-
   window.addEventListener(
     "resize",
     function () {
@@ -26,20 +25,23 @@ export default function Header() {
 
   function resizeNav() {
     if (window.innerWidth >= 750) {
-      mySidenav.classList.add("header-menu-PC");
+      document.getElementById("mySidenav").classList.add("header-menu-PC");
     } else if (window.innerWidth < 750) {
-      mySidenav.classList.remove("header-menu-PC");
+      document.getElementById("mySidenav").classList.remove("header-menu-PC");
     }
   }
 
   function openNav() {
-    mySidenav.style.width = "250px";
+    document.getElementById("mySidenav").style.width = "250px";
   }
 
   function closeNav() {
-    mySidenav.style.width = "0";
+    document.getElementById("mySidenav").style.width = "0";
   }
 
+  // useLayoutEffect(() => {
+  //   resizeNav();
+  // }, []);
   return (
     <nav>
       <div className="header-menu-bg">

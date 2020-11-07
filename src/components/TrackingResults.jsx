@@ -97,7 +97,7 @@ export default function TrackingResults({ match }) {
             {status === 1 ? cards : null}
             {status === 2 ? <p>Query is empty. show serch box.</p> : null}
             {status === 3 ? (
-              <p>Data loading error. Please try agai later.</p>
+              <p>Data loading error. Please try again later.</p>
             ) : null}
           </div>
         </section>
