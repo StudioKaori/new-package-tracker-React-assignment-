@@ -61,8 +61,8 @@ export default function TrackingResults({ match }) {
   useEffect(() => {
     if (data.length !== 0) {
       console.log("data ;", data);
-      setStatus(1);
       setCards(sortAndCreatCards("last_updated"));
+      setStatus(1);
     } else {
       //if no results
       setStatus(3);
