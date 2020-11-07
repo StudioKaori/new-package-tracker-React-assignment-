@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 
 // for multi-lang support
-import { userTranslation, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 //recoil library
-import { atom, useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { langState } from "./../../js/state-information";
 
 export default function Card({ parcelData }) {
