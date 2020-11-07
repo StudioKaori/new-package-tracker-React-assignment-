@@ -48,7 +48,7 @@ export default function TrackingResults({ match }) {
             removeSpaceAndlower(userName)
         );
         setData(filteredData);
-        console.log("filteredData ;", filteredData);
+        console.log("NEWfilteredData ;", filteredData);
       } catch {
         // Set status data loading error(2)
         setStatus(2);
@@ -120,7 +120,6 @@ export default function TrackingResults({ match }) {
             <select
               onChange={(event) => {
                 setCards(sortAndCreatCards(event.target.value));
-                console.log(event.target.value);
               }}
             >
               {sortOptions}
