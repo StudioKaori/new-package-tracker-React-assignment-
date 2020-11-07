@@ -103,6 +103,17 @@ export default function Header() {
               >
                 SV
               </li>
+              <li
+                onClick={() => {
+                  setLang("ja");
+                  closeNav();
+                  switchLangColor("ja");
+                }}
+                id="ja"
+                className="lang-switch"
+              >
+                JA
+              </li>
             </ul>
           </div>
         </div>

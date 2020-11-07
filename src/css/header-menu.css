@@ -90,6 +90,7 @@ h1{
   }
   .header-menu li {
     display: inline;
+    padding: 4px;
   }
   .header-menu li a {
     display: inline;
