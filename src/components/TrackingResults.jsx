@@ -7,6 +7,8 @@ import { userTranslation, useTranslation } from "react-i18next";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 import { langState } from "../js/state-information";
 
+import { useLocation } from "react-router-dom";
+
 import Card from "./parts/Card";
 import Header from "./parts/Header";
 // todo replace fake db to real
@@ -26,7 +28,11 @@ export default function TrackingResults({ match }) {
   // loading status, 0= loading, 1=ready, 2=loading error
   const [status, setStatus] = useState(1);
 
-  const userName = match.params.query;
+  // user name and phone
+  const location = useLocation();
+  console.log("location :", location);
+
+  const userName = location.state.userName;
 
   // todo remove param 'data' from useState later, useState(), param should be empty
   const [information, setInformation] = useState(Data);

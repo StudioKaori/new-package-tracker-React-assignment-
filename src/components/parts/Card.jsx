@@ -19,7 +19,6 @@ export default function Card({ parcelData }) {
 
   if (typeof parcelData !== "undefined") {
     const {
-      id,
       parcel_id,
       last_updated,
       status,

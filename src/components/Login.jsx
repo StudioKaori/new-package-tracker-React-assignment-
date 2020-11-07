@@ -24,12 +24,16 @@ export default function Login() {
 
   // for multi-lang support
   useEffect(() => {
-    console.log(lang);
     i18n.changeLanguage(lang);
   }, [lang, i18n]);
 
   // user name
   const [query, setQuery] = useState("");
+
+  const to = {
+    pathname: `/results/${lang}`,
+    state: { userName: query },
+  };
 
   return (
     <div>
@@ -49,9 +53,10 @@ export default function Login() {
                 onChange={(event) => setQuery(event.target.value)}
               />
               {/* add query to the url */}
-              <Link to={`/results/${query}`}>
+              {/* <Link to={`/results/${query}`}> */}
+              <Link to={to}>
                 <span>
-                  <i class="fas fa-search" title={t("Search")}></i>
+                  <i className="fas fa-search" title={t("Search")}></i>
                 </span>
               </Link>
             </div>
