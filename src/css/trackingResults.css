@@ -1,7 +1,7 @@
 @import url('./style.css');
 @import url('./content.css');
 
-.no-result{
+.display-status{
   width: fit-content;
   margin: auto;
   font-size: var(--font-L);
