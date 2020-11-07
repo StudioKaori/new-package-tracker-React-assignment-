@@ -1,6 +1,21 @@
+import React, { useEffect } from "react";
+
+// for multi-lang support
+import { userTranslation, useTranslation } from "react-i18next";
+
+//recoil library
+import { atom, useRecoilState, useRecoilValue } from "recoil";
+import { langState } from "./../../js/state-information";
+
 export default function Card({ parcelData }) {
-  console.log("Card");
-  console.log("parcelData :", parcelData);
+  const [t, i18n] = useTranslation();
+  const [lang, setLang] = useRecoilState(langState);
+
+  // for multi-lang support
+  useEffect(() => {
+    console.log(lang);
+    i18n.changeLanguage(lang);
+  }, [lang, i18n]);
 
   function formatDate(date) {
     return date.slice(0, -1).replace("T", " ");
@@ -36,7 +51,8 @@ export default function Card({ parcelData }) {
     return (
       <article className="package">
         <h3>
-          <i className="fas fa-box"></i>Package ID: {parcel_id}
+          <i className="fas fa-box"></i>
+          {t("Package ID")} : {parcel_id}
         </h3>
         <div className="package-status">
           <div className="package-status-text">{status}</div>
@@ -58,32 +74,32 @@ export default function Card({ parcelData }) {
           <table className="package-details">
             <tbody>
               <tr>
-                <td>Last update</td>
+                <th>Last update</th>
                 <td>{formattedLastUpdate}</td>
               </tr>
               <tr className="col2">
-                <td>ETA</td>
+                <th>ETA</th>
                 <td>{formattedETA}</td>
               </tr>
               <tr>
-                <td>Sender</td>
+                <th>Sender</th>
                 <td>{sender}</td>
               </tr>
               <tr className="col2">
-                <td>Location</td>
+                <th>Location</th>
                 <td>
                   {location_name} <i className="fas fa-map-marker-alt"></i>
-                  <a href={mapURL} target="_blank">
+                  <a href={mapURL} target="_blank" rel="noreferrer">
                     Map
                   </a>
                 </td>
               </tr>
               <tr>
-                <td>Verification</td>
+                <th>Verification</th>
                 <td>{verification_required ? "Required" : "Not required"}</td>
               </tr>
               <tr className="col2">
-                <td>Notes</td>
+                <th>Notes</th>
                 <td>{notes}</td>
               </tr>
             </tbody>

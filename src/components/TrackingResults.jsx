@@ -80,7 +80,7 @@ export default function TrackingResults({ match }) {
         <header className="introduction">
           <div className="header_textbox">
             <h2>
-              Welcome,
+              {t("Welcome")},
               <br />
               Kaori Persson
             </h2>

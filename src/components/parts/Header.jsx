@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { atom, useRecoilState, useRecoilValue } from "recoil";
 
 import { langState } from "../../js/state-information";
@@ -39,9 +39,12 @@ export default function Header() {
     document.getElementById("mySidenav").style.width = "0";
   }
 
-  // useLayoutEffect(() => {
-  //   resizeNav();
-  // }, []);
+  function changeState() {
+    if (window.innerWidth < 750) {
+      closeNav();
+    }
+  }
+
   return (
     <nav>
       <div className="header-menu-bg">
@@ -66,15 +69,22 @@ export default function Header() {
               &times;
             </span>
             <ul>
-              <li onClick={() => setLang("en")}>
-                <a href="index.html" target="_self" id="checked">
-                  EN
-                </a>
+              <li
+                onClick={() => {
+                  setLang("en");
+                  changeState();
+                }}
+                id="checked"
+              >
+                EN
               </li>
-              <li onClick={() => setLang("sv")}>
-                <a href="about.html" target="_self">
-                  SV
-                </a>
+              <li
+                onClick={() => {
+                  setLang("sv");
+                  changeState();
+                }}
+              >
+                SV
               </li>
             </ul>
           </div>
