@@ -45,6 +45,18 @@ export default function Header() {
     }
   }
 
+  function switchLangColor(id) {
+    const langSwitchs = document.getElementsByClassName("lang-switch");
+
+    Array.prototype.forEach.call(langSwitchs, function (langSwitch) {
+      langSwitch.classList.remove("checked");
+    });
+
+    console.log(id);
+
+    document.getElementById(id).classList.add("checked");
+  }
+
   return (
     <nav>
       <div className="header-menu-bg">
@@ -73,8 +85,10 @@ export default function Header() {
                 onClick={() => {
                   setLang("en");
                   closeNav();
+                  switchLangColor("en");
                 }}
                 id="en"
+                className="lang-switch checked"
               >
                 EN
               </li>
@@ -82,8 +96,10 @@ export default function Header() {
                 onClick={() => {
                   setLang("sv");
                   closeNav();
+                  switchLangColor("sv");
                 }}
                 id="sv"
+                className="lang-switch"
               >
                 SV
               </li>

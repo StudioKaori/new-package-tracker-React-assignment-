@@ -31,7 +31,7 @@ h1{
   padding: 10px;
 }
 
-.header-menu li {
+.lang-switch {
   color: var(--font-light);
   cursor: pointer;
   display: block;
@@ -109,7 +109,7 @@ h1{
     display: none;
   }
 
-  #checked {
+  .checked {
     font-weight: bold;
     color: var(--brand-color);
   }
