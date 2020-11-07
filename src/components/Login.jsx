@@ -13,7 +13,7 @@ import { langState } from "../js/state-information";
 import Header from "./parts/Header";
 
 // import css
-import "../css/style.css";
+import "../css/login.css";
 
 export default function Login() {
   console.log("Login");
@@ -40,15 +40,17 @@ export default function Login() {
           <div className="header_textbox">
             <h2>{t("Package Tracker")}</h2>
 
-            <label>{t("Name")}</label>
-            <input
-              placeholder={t("Name")}
-              value={query}
-              // when the value in search box changed, update to new value by setQuery
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            {/* add query to the url */}
-            <Link to={`/results/${query}`}>{t("Search")}</Link>
+            <div className="seachbox">
+              <label>{t("Name")}</label>
+              <input
+                placeholder={t("Name")}
+                value={query}
+                // when the value in search box changed, update to new value by setQuery
+                onChange={(event) => setQuery(event.target.value)}
+              />
+              {/* add query to the url */}
+              <Link to={`/results/${query}`}>{t("Search")}</Link>
+            </div>
           </div>
         </header>
       </div>

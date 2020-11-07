@@ -13,27 +13,20 @@ import Header from "./parts/Header";
 import Data from "../PackageTrackingData.json";
 
 // import css
-import "../css/style.css";
+import "../css/trackingResults.css";
 
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
-
-  const userName = match.params.query;
-  console.log("userName:", userName);
 
   // for multi-lang support
   const [t, i18n] = useTranslation();
   const [lang, setLang] = useRecoilState(langState);
 
   // todo set0 when fake db is replaced
-  // loading status, 0= loading, 1=ready, 2= no parcel_id error, 3=loading error
+  // loading status, 0= loading, 1=ready, 2=loading error
   const [status, setStatus] = useState(1);
 
-  // if query is empty, set error
-  // const query = match.params.query;
-  // if (query === "" || query === null) {
-  //   setStatus(2);
-  // }
+  const userName = match.params.query;
 
   // todo remove param 'data' from useState later, useState(), param should be empty
   const [information, setInformation] = useState(Data);
@@ -64,8 +57,8 @@ export default function TrackingResults({ match }) {
         console.log('fetch data, ok');
         console.log('data :', data);
       } catch {
-        // Set status data loading error(3)
-        setStatus(3);
+        // Set status data loading error(2)
+        setStatus(2);
         console.log('fetch data, no');
       }
     };
@@ -108,9 +101,14 @@ export default function TrackingResults({ match }) {
       Otherwise display error.       */}
 
             {status === 0 ? <p>Loading...</p> : null}
-            {status === 1 ? cards : null}
-            {status === 2 ? <p>Please input your name again.</p> : null}
-            {status === 3 ? (
+            {status === 1 ? (
+              cards.length === 0 ? (
+                <div className="no-result">{t("No result")}</div>
+              ) : (
+                cards
+              )
+            ) : null}
+            {status === 2 ? (
               <p>Data loading error. Please try again later.</p>
             ) : null}
           </div>
