@@ -41,7 +41,7 @@ export default function Login() {
             <h2>{t("Package Tracker")}</h2>
 
             <div className="seachbox">
-              <label>{t("Name")}</label>
+              <label>{t("Name")} : </label>
               <input
                 placeholder={t("Name")}
                 value={query}
@@ -49,7 +49,11 @@ export default function Login() {
                 onChange={(event) => setQuery(event.target.value)}
               />
               {/* add query to the url */}
-              <Link to={`/results/${query}`}>{t("Search")}</Link>
+              <Link to={`/results/${query}`}>
+                <span>
+                  <i class="fas fa-search" title={t("Search")}></i>
+                </span>
+              </Link>
             </div>
           </div>
         </header>
