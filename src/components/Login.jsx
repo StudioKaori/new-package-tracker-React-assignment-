@@ -41,7 +41,7 @@ export default function Login() {
             <h2>{t("Package Tracker")}</h2>
 
             <div className="seachbox">
-              <label>{t("Name")} : </label>
+              <label>{t("Name")}</label>
               <input
                 placeholder={t("Name")}
                 value={query}

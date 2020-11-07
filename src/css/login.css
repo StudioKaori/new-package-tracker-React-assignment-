@@ -1,17 +1,24 @@
 @import url('./style.css');
 
 .seachbox {
+  width: fit-content;
   margin: 30px auto;
+  background-color: var(--font-dark-light);
+  border-radius: 8px;
 }
 .seachbox label{
   font-family: 'Black Ops One', cursive;
+  margin: 0 8px;
 }
 
 .seachbox input{
-  border-radius: 5px;
   display: inline-block;
   background-color: var(--font-dark-light);
-  color: var(--font-light);
+  color: var(--font-dark);
+  border: 0;
+  font-size: var(--font-L);
+  padding: 6px;
+  background-color: #9c9c9c;
 }
 
 .seachbox a{
@@ -19,6 +26,18 @@
 }
 
 .seachbox span{
+  color: var( --font-light);
+  display: inline-block;
+  font-size: 20px;
+  height: 32px;
+  line-height: 32px;
+  margin: auto 5px;
+  text-align: center;
+  width: 32px;
+}
+
+
+/* .seachbox span{
   background-color: #9c9c9c;
   border-radius: 100%;
   color: var( --font-light);
@@ -29,4 +48,4 @@
   margin: auto 5px;
   text-align: center;
   width: 30px;
-}
+} */
