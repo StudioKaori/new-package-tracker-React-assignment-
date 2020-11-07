@@ -34,7 +34,7 @@ export default function TrackingResults({ match }) {
   const [data, setData] = useState([]);
   const [cards, setCards] = useState([]);
 
-  // todo replace fake db to real
+  // fetch data
   useEffect(() => {
     const getData = async () => {
       try {
