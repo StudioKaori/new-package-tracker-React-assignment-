@@ -36,62 +36,6 @@ export default function Card({ parcelData }) {
     function formatDate(date) {
       return date.slice(0, -1).replace("T", " ");
     }
-    const formattedETA = formatDate(eta);
-    const formattedLastUpdate = formatDate(last_updated);
-
-    // link for google map
-    const mapURL =
-      "https://www.google.co.jp/maps/@" +
-      location_coordinate_latitude +
-      "," +
-      location_coordinate_longitude +
-      ",16z";
-
-    // for delivery status images
-    const deliveryStatus1ID = id + "order-info-received";
-    const deliveryStatus2ID = id + "on-the-way";
-    const deliveryStatus3ID = id + "ready-for-pickup";
-    const deliveryStatus4ID = id + "delivered";
-
-    window.addEventListener(
-      "load",
-      function () {
-        changeStatusImgs();
-      },
-      false
-    );
-
-    function addClassToElements(...args) {
-      args.forEach((element) => {
-        document.getElementById(element).classList.add("done");
-      });
-    }
-
-    function changeStatusImgs() {
-      switch (status) {
-        case "delivered":
-          addClassToElements(
-            deliveryStatus1ID,
-            deliveryStatus2ID,
-            deliveryStatus3ID,
-            deliveryStatus4ID
-          );
-          break;
-        case "ready-for-pickup":
-          addClassToElements(
-            deliveryStatus1ID,
-            deliveryStatus2ID,
-            deliveryStatus3ID
-          );
-          break;
-        case "on-the-way":
-          addClassToElements(deliveryStatus1ID, deliveryStatus2ID);
-          break;
-        default:
-          addClassToElements(deliveryStatus1ID);
-          break;
-      }
-    }
 
     return (
       <article className="package">
@@ -101,16 +45,30 @@ export default function Card({ parcelData }) {
         </h3>
         <div className="package-status">
           <div className="package-status-text">{t(status)}</div>
-          <span id={deliveryStatus1ID}>
+          <span className="done">
             <i className="fas fa-file-upload"></i>
           </span>
-          <span id={deliveryStatus2ID}>
+          <span
+            className={
+              status === "on-the-way" ||
+              status === "ready-for-pickup" ||
+              status === "delivered"
+                ? "done"
+                : "none"
+            }
+          >
             <i className="fas fa-shipping-fast"></i>
           </span>
-          <span id={deliveryStatus3ID}>
+          <span
+            className={
+              status === "ready-for-pickup" || status === "delivered"
+                ? "done"
+                : "none"
+            }
+          >
             <i className="far fa-check-circle"></i>
           </span>
-          <span id={deliveryStatus4ID}>
+          <span className={status === "delivered" ? "done" : "none"}>
             <i className="fas fa-check-circle"></i>
           </span>
         </div>
@@ -120,11 +78,11 @@ export default function Card({ parcelData }) {
             <tbody>
               <tr>
                 <th>{t("Last update")}</th>
-                <td>{formattedLastUpdate}</td>
+                <td>{formatDate(last_updated)}</td>
               </tr>
               <tr className="col2">
                 <th>{t("ETA")}</th>
-                <td>{formattedETA}</td>
+                <td>{formatDate(eta)}</td>
               </tr>
               <tr>
                 <th>{t("Sender")}</th>
@@ -134,7 +92,11 @@ export default function Card({ parcelData }) {
                 <th>{t("Location")}</th>
                 <td>
                   {location_name} <i className="fas fa-map-marker-alt"></i>
-                  <a href={mapURL} target="_blank" rel="noreferrer">
+                  <a
+                    href={`https://www.google.co.jp/maps/@${location_coordinate_latitude},${location_coordinate_longitude},16z`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {t("Map")}
                   </a>
                 </td>
