@@ -29,8 +29,6 @@ export default function Card({ parcelData }) {
       location_name,
       location_coordinate_latitude,
       location_coordinate_longitude,
-      user_phone,
-      user_name,
       notes,
     } = parcelData;
 
