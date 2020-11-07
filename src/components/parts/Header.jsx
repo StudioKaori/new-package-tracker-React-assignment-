@@ -24,10 +24,14 @@ export default function Header() {
   );
 
   function resizeNav() {
+    const mySidenav = document.getElementById("mySidenav");
+
     if (window.innerWidth >= 750) {
-      document.getElementById("mySidenav").classList.add("header-menu-PC");
+      mySidenav.classList.add("header-menu-PC");
+      mySidenav.style.width = "100%";
     } else if (window.innerWidth < 750) {
-      document.getElementById("mySidenav").classList.remove("header-menu-PC");
+      mySidenav.classList.remove("header-menu-PC");
+      closeNav();
     }
   }
 
@@ -36,12 +40,8 @@ export default function Header() {
   }
 
   function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-
-  function changeState() {
     if (window.innerWidth < 750) {
-      closeNav();
+      document.getElementById("mySidenav").style.width = "0";
     }
   }
 
@@ -72,17 +72,18 @@ export default function Header() {
               <li
                 onClick={() => {
                   setLang("en");
-                  changeState();
+                  closeNav();
                 }}
-                id="checked"
+                id="en"
               >
                 EN
               </li>
               <li
                 onClick={() => {
                   setLang("sv");
-                  changeState();
+                  closeNav();
                 }}
+                id="sv"
               >
                 SV
               </li>
