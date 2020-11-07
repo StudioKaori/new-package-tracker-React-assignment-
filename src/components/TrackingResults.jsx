@@ -18,6 +18,9 @@ import "../css/style.css";
 export default function TrackingResults({ match }) {
   console.log("TrackingResults");
 
+  const userName = removeSpaceAndlower(match.params.query);
+  console.log("userName:", userName);
+
   // for multi-lang support
   const [t, i18n] = useTranslation();
   const [lang, setLang] = useRecoilState(langState);
@@ -39,7 +42,9 @@ export default function TrackingResults({ match }) {
   // todo change to useState([]), after replace fake DB
   //inside of useeffect, setcard.
   const [cards, setCards] = useState(
-    information.map((parcel) => <Card key={parcel.id} parcelData={parcel} />)
+    information
+      .filter((parcel) => removeSpaceAndlower(parcel.user_name) === userName)
+      .map((parcel) => <Card key={parcel.id} parcelData={parcel} />)
   );
 
   // todo replace fake db to real
@@ -71,6 +76,11 @@ export default function TrackingResults({ match }) {
     console.log(lang);
     i18n.changeLanguage(lang);
   }, [lang, i18n]);
+
+  // remove space and lower case for string
+  function removeSpaceAndlower(str) {
+    return str.replace(/\s+/g, "").toLowerCase();
+  }
 
   return (
     <div>

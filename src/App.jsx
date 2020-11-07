@@ -12,11 +12,11 @@ export default function App() {
         <div>
           <Switch>
             <Route path="/" exact component={Login} />
-            <Route path="/results" component={TrackingResults} />
-            {/* <Route
-            path="/results/:query"
-            render={({ match }) => <TrackingResults match={match} />}
-          /> */}
+            {/* <Route path="/results" component={TrackingResults} /> */}
+            <Route
+              path="/results/:query"
+              render={({ match }) => <TrackingResults match={match} />}
+            />
           </Switch>
         </div>
       </RecoilRoot>
