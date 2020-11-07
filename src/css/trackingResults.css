@@ -1,2 +1,11 @@
 @import url('./style.css');
 @import url('./content.css');
+
+.no-result{
+  width: fit-content;
+  margin: auto;
+  font-size: var(--font-L);
+  text-align: center;
+  font-family: 'Black Ops One', cursive;
+  grid-column: 1/3;
+}

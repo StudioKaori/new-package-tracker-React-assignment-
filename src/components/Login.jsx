@@ -27,12 +27,13 @@ export default function Login() {
     i18n.changeLanguage(lang);
   }, [lang, i18n]);
 
-  // user name
-  const [query, setQuery] = useState("");
+  // user infor
+  const [userName, setUserName] = useState("");
 
+  // set lang to lang, and username to state
   const to = {
     pathname: `/results/${lang}`,
-    state: { userName: query },
+    state: { userName: userName },
   };
 
   return (
@@ -48,12 +49,9 @@ export default function Login() {
               <label>{t("Name")}</label>
               <input
                 placeholder={t("Name")}
-                value={query}
-                // when the value in search box changed, update to new value by setQuery
-                onChange={(event) => setQuery(event.target.value)}
+                value={userName}
+                onChange={(event) => setUserName(event.target.value)}
               />
-              {/* add query to the url */}
-              {/* <Link to={`/results/${query}`}> */}
               <Link to={to}>
                 <span>
                   <i className="fas fa-search" title={t("Search")}></i>
