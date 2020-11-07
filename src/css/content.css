@@ -62,6 +62,7 @@
 }
 
 .package-details th{
+  padding-left: 10px;
   width: 90px;
   font-size: var(--font-S);
   text-align: left;

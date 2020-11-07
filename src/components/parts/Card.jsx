@@ -17,36 +17,66 @@ export default function Card({ parcelData }) {
     i18n.changeLanguage(lang);
   }, [lang, i18n]);
 
-  function formatDate(date) {
-    return date.slice(0, -1).replace("T", " ");
-  }
-
   if (typeof parcelData !== "undefined") {
     const {
+      id,
       parcel_id,
       last_updated,
       status,
       eta,
       sender,
       verification_required,
-      location_id,
       location_name,
       location_coordinate_latitude,
       location_coordinate_longitude,
-      location_status_ok,
       user_phone,
       user_name,
       notes,
     } = parcelData;
 
+    // format date
+    function formatDate(date) {
+      return date.slice(0, -1).replace("T", " ");
+    }
     const formattedETA = formatDate(eta);
     const formattedLastUpdate = formatDate(last_updated);
+
+    // link for google map
     const mapURL =
       "https://www.google.co.jp/maps/@" +
       location_coordinate_latitude +
       "," +
       location_coordinate_longitude +
       ",16z";
+
+    // for delivery status images
+    const deliveryStatus1ID = id + "order-info-received";
+    const deliveryStatus2ID = id + "on-the-way";
+    const deliveryStatus3ID = id + "ready-for-pickup";
+    const deliveryStatus4ID = id + "delivered";
+
+    window.addEventListener(
+      "load",
+      function () {
+        changeStatusImgs();
+      },
+      false
+    );
+
+    // no break between cases on parpose, since I want to color all of imgs.
+    function changeStatusImgs() {
+      switch (status) {
+        case "delivered":
+          document.getElementById(deliveryStatus4ID).classList.add("done");
+        case "ready-for-pickup":
+          document.getElementById(deliveryStatus3ID).classList.add("done");
+        case "on-the-way":
+          document.getElementById(deliveryStatus2ID).classList.add("done");
+        default:
+          document.getElementById(deliveryStatus1ID).classList.add("done");
+          break;
+      }
+    }
 
     return (
       <article className="package">
@@ -55,17 +85,17 @@ export default function Card({ parcelData }) {
           {t("Package ID")} : {parcel_id}
         </h3>
         <div className="package-status">
-          <div className="package-status-text">{status}</div>
-          <span className="done">
+          <div className="package-status-text">{t(status)}</div>
+          <span id={deliveryStatus1ID}>
             <i className="fas fa-file-upload"></i>
           </span>
-          <span>
+          <span id={deliveryStatus2ID}>
             <i className="fas fa-shipping-fast"></i>
           </span>
-          <span>
+          <span id={deliveryStatus3ID}>
             <i className="far fa-check-circle"></i>
           </span>
-          <span>
+          <span id={deliveryStatus4ID}>
             <i className="fas fa-check-circle"></i>
           </span>
         </div>
@@ -74,32 +104,34 @@ export default function Card({ parcelData }) {
           <table className="package-details">
             <tbody>
               <tr>
-                <th>Last update</th>
+                <th>{t("Last update")}</th>
                 <td>{formattedLastUpdate}</td>
               </tr>
               <tr className="col2">
-                <th>ETA</th>
+                <th>{t("ETA")}</th>
                 <td>{formattedETA}</td>
               </tr>
               <tr>
-                <th>Sender</th>
+                <th>{t("Sender")}</th>
                 <td>{sender}</td>
               </tr>
               <tr className="col2">
-                <th>Location</th>
+                <th>{t("Location")}</th>
                 <td>
                   {location_name} <i className="fas fa-map-marker-alt"></i>
                   <a href={mapURL} target="_blank" rel="noreferrer">
-                    Map
+                    {t("Map")}
                   </a>
                 </td>
               </tr>
               <tr>
-                <th>Verification</th>
-                <td>{verification_required ? "Required" : "Not required"}</td>
+                <th>{t("Verification")}</th>
+                <td>
+                  {verification_required ? t("Required") : t("Not required")}
+                </td>
               </tr>
               <tr className="col2">
-                <th>Notes</th>
+                <th>{t("Notes")}</th>
                 <td>{notes}</td>
               </tr>
             </tbody>
