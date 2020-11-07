@@ -142,7 +142,7 @@ export default function Card({ parcelData }) {
   } else {
     return (
       <div className="card">
-        <h2>Package does not exist.</h2>
+        <h2>{t("Package ID does not exist.")}</h2>
       </div>
     );
   }

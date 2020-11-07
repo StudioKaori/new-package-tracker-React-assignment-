@@ -2,5 +2,19 @@
   "Tracking result": "検索結果",
   "Change language": "言語切替",
   "Welcome": "ようこそ",
-  "Package ID": "パッケージ ID"
+  "Package ID": "パッケージ ID",
+  "order-info-received": "オーダー受領",
+  "on-the-way": "配送中",
+  "ready-for-pickup": "受け取り可能",
+  "delivered": "配達済み",
+  "Last update": "最終更新",
+  "ETA": "受取予定日",
+  "Sender": "送り主",
+  "Location": "場所",
+  "Map": "地図",
+  "Verification": "本人確認",
+  "Required": "必要",
+  "Not required": "不要",
+  "Notes": "ノート",
+  "Package ID does not exist.": "パッケージIDは存在しません。"
 }

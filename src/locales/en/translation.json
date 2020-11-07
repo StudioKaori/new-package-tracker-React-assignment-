@@ -2,5 +2,19 @@
   "Tracking result": "Tracking result(s)",
   "Change language": "Change language",
   "Welcome": "Welcom",
-  "Package ID": "Package ID"
+  "Package ID": "Package ID",
+  "order-info-received": "order-info-received",
+  "on-the-way": "on-the-way",
+  "ready-for-pickup": "ready-for-pickup",
+  "delivered": "delivered",
+  "Last update": "Last update",
+  "ETA": "ETA",
+  "Sender": "Sender",
+  "Location": "Location",
+  "Map": "Map",
+  "Verification": "Verification",
+  "Required": "Required",
+  "Not required": "Not required",
+  "Notes": "Notes",
+  "Package ID does not exist.": "Package does not exist."
 }
