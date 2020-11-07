@@ -48,7 +48,7 @@ export default function Login() {
             <div className="seachbox">
               <label>{t("Name")}</label>
               <input
-                placeholder={t("Name")}
+                placeholder={t("Input your name for search")}
                 value={userName}
                 onChange={(event) => setUserName(event.target.value)}
               />

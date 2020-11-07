@@ -16,7 +16,8 @@
   background-color: var(--font-dark-light);
   color: var(--font-dark);
   border: 0;
-  font-size: var(--font-L);
+  font-size: var(--font-M);
+  height: 30px;
   padding: 6px;
   background-color: #9c9c9c;
 }
