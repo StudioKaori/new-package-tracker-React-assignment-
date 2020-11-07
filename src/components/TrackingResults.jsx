@@ -22,12 +22,12 @@ export default function TrackingResults({ match }) {
   const [t, i18n] = useTranslation();
   const [lang, setLang] = useRecoilState(langState);
 
-  // loading status, 0= loading, 1=ready, 2=loading error
-  const [status, setStatus] = useState(0);
-
   // user name and phone
   const location = useLocation();
   const userName = location.state.userName;
+
+  // loading status, 0= loading, 1=ready, 2=loading error 3=no results
+  const [status, setStatus] = useState(0);
 
   //data
   const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
@@ -49,10 +49,6 @@ export default function TrackingResults({ match }) {
         );
         setData(filteredData);
         console.log("filteredData ;", filteredData);
-
-        setCards(sortAndCreatCards("last_updated"));
-
-        setStatus(1);
       } catch {
         // Set status data loading error(2)
         setStatus(2);
@@ -61,6 +57,17 @@ export default function TrackingResults({ match }) {
 
     getData();
   }, []);
+
+  useEffect(() => {
+    if (data.length !== 0) {
+      console.log("data ;", data);
+      setStatus(1);
+      setCards(sortAndCreatCards("last_updated"));
+    } else {
+      //if no results
+      setStatus(3);
+    }
+  }, [data]);
 
   // for multi-lang support
   useEffect(() => {
@@ -124,16 +131,19 @@ export default function TrackingResults({ match }) {
               <div className="display-status">Loading...</div>
             ) : null}
             {status === 1 ? (
-              cards.length === 0 ? (
-                <div className="display-status">{t("No result")}</div>
-              ) : (
+              data.length !== 0 ? (
                 cards
+              ) : (
+                <div className="display-status">{t("No result")}</div>
               )
             ) : null}
             {status === 2 ? (
               <div className="display-status">
                 Data loading error. Please try again later.
               </div>
+            ) : null}
+            {status === 3 ? (
+              <div className="display-status">{t("No result")}</div>
             ) : null}
           </div>
         </section>
