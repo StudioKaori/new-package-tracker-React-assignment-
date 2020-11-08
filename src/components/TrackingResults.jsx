@@ -54,6 +54,10 @@ export default function TrackingResults({ match }) {
         );
         setData(filteredData);
         console.log("NEWfilteredData ;", filteredData);
+
+        if (filteredData.length === 0) {
+          setStatus(3);
+        }
       } catch {
         // Set status data loading error(2)
         setStatus(2);
