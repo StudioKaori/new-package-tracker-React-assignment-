@@ -52,6 +52,13 @@ No bug/issues reported.
 1. If there's any better way to update two hooks at the same time, "data" and "cards" in TrackingResult.jsx?  
    '[Please check issue #1 for futher information](https://git.2020.school/kaori_persson/new-package-traker/-/issues/1)'
 
+## About unnecessary files
+
+To avoid to access mockaroo too many times, I used local fake Json file for the test.  
+"/src/components/FakeDBTrackingResults.jsx"  
+"/src/PackageTrackingData.json"  
+ The files above are for the test. You don't need to check the files. I just leave it for possible change for the future.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
