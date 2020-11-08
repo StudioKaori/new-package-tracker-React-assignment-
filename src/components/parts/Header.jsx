@@ -17,8 +17,8 @@ export default function Header() {
   );
 
   useEffect(() => {
-    console.log("header, resize");
     resizeNav();
+    switchLangColor(lang);
   }, []);
 
   function resizeNav() {
