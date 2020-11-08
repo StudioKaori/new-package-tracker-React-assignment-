@@ -55,6 +55,16 @@ export default function TrackingResults({ match }) {
         setData(filteredData);
         console.log("NEWfilteredData ;", filteredData);
 
+        // Question for TAs
+        // Since I set data in line 55, I thought I could access to data
+        // from here, but the data(array) was empty.
+        // console.log("data ;", data); // The data(array was empty.
+        // So, I created different useEffect(triggered by data change) underneath.
+        // It works perfectly.
+        // I just wondered why I can't access to data.
+        // Because of async?
+        // I put "await" keyword to setData, but didn't work.
+
         if (filteredData.length === 0) {
           setStatus(3);
         }

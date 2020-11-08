@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Yellow Corporation Package Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## SDA react assignment
 
-## Available Scripts
+Package Tracker is a simple package tracker.  
+You can search and track your packages status under.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+Build foloder is "/build".  
+Route page is "/src/App.jsx"  
+Firebase : '[https://sda-package-tracker.web.app](https://sda-package-tracker.web.app)'
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User manual
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Search your packages by your name  
+   Please input your name ("Jhon Doe" in this case) in the entry page to search and track your packages.
 
-### `npm test`
+2. Sort by Last update, ETA or Sender  
+   You can sort the tracking results by Last update, ETA or Sender from the top right drop down list.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Select languages
+   This site supports English, Swedish and Japanese.
+   Please select your preferable language from the top right language selecter.
 
-### `npm run build`
+## Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- i18n & i18next  
+  For multi-languages support
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Recoil  
+  For shared statement. (To share preferable language setting)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Class diagram and activity diagram
 
-### `npm run eject`
+'[Class diagram and activity diagram](https://drive.google.com/file/d/1ZPZFC3kEt-FhB211yppsOoWCfLqH85lW/view?usp=sharing)'
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Business requirement & data(json) analytic
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+'[Business requirement & data(json) analytic](https://docs.google.com/spreadsheets/d/1QzxyQG3TT45rRh7XErl9EbiCbTLRGJDu5l8evuvpJEU/edit?usp=sharing)'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Bug/issues
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+No bug/issues reported.
 
-## Learn More
+## Last Update
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[2020.11.08] Depley firebase
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Question for TAs
 
-### Code Splitting
+1. If there's any better way to update two hooks at the same time, "data" and "cards" in TrackingResult.jsx?  
+   '[Please check issue #1 for futher information](https://git.2020.school/kaori_persson/new-package-traker/-/issues/1)'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[MIT](https://choosealicense.com/licenses/mit/)
