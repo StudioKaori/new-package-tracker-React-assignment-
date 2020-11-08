@@ -37,6 +37,7 @@ export default function TrackingResults({ match }) {
   const endpoint = "https://my.api.mockaroo.com/orders.json?key=e49e6840";
   const [data, setData] = useState([]);
   const [cards, setCards] = useState([]);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   // fetch data
   useEffect(() => {
@@ -65,10 +66,13 @@ export default function TrackingResults({ match }) {
   useEffect(() => {
     if (data.length !== 0) {
       console.log("data ;", data);
+      console.log("array length exist status ;", status);
       setCards(sortAndCreatCards("last_updated"));
+      setIsFirstLoad(false);
       setStatus(1);
-    } else {
+    } else if (!isFirstLoad) {
       //if no results
+      console.log("array length 0 status ;", status);
       setStatus(3);
     }
   }, [data]);
