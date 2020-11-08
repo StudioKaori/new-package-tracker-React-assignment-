@@ -1,5 +1,5 @@
-import React from "react";
-import { atom, useRecoilState, useRecoilValue } from "recoil";
+import React, { useEffect } from "react";
+import { useRecoilState } from "recoil";
 
 import { langState } from "../../js/state-information";
 
@@ -10,18 +10,16 @@ export default function Header() {
   window.addEventListener(
     "resize",
     function () {
+      console.log("header, load");
       resizeNav();
     },
     false
   );
 
-  window.addEventListener(
-    "load",
-    function () {
-      resizeNav();
-    },
-    false
-  );
+  useEffect(() => {
+    console.log("header, resize");
+    resizeNav();
+  }, []);
 
   function resizeNav() {
     const mySidenav = document.getElementById("mySidenav");
@@ -51,8 +49,6 @@ export default function Header() {
     Array.prototype.forEach.call(langSwitchs, function (langSwitch) {
       langSwitch.classList.remove("checked");
     });
-
-    console.log(id);
 
     document.getElementById(id).classList.add("checked");
   }

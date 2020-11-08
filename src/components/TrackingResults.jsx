@@ -65,14 +65,11 @@ export default function TrackingResults({ match }) {
 
   useEffect(() => {
     if (data.length !== 0) {
-      console.log("data ;", data);
-      console.log("array length exist status ;", status);
       setCards(sortAndCreatCards("last_updated"));
       setIsFirstLoad(false);
       setStatus(1);
     } else if (!isFirstLoad) {
       //if no results
-      console.log("array length 0 status ;", status);
       setStatus(3);
     }
   }, [data]);
