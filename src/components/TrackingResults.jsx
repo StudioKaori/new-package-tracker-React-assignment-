@@ -24,6 +24,10 @@ export default function TrackingResults({ match }) {
 
   // user name and phone
   const location = useLocation();
+  // if user name is empty, redirect to login page
+  if (typeof location.state === "undefined" || location.state === null) {
+    window.location.href = "/";
+  }
   const userName = location.state.userName;
 
   // loading status, 0= loading, 1=ready, 2=loading error 3=no results
