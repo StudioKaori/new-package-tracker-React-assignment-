@@ -2,6 +2,7 @@
 
 ## SDA react assignment
 
+This project is for react assignment for Software developement Academy by KTH.
 Package Tracker is a simple package tracker.  
 You can search and track your packages status under.
 
