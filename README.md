@@ -27,7 +27,7 @@ Firebase : '[https://sda-package-tracker.web.app](https://sda-package-tracker.we
 
 ## Dependencies
 
-- i18n & i18next  
+- i18n
   For multi-languages support
 
 - Recoil  
@@ -47,12 +47,7 @@ No bug/issues reported.
 
 ## Last Update
 
-[2020.11.08] Depley firebase
-
-## Question for TAs
-
-1. If there's any better way to update two hooks at the same time, "data" and "cards" in TrackingResult.jsx?  
-   '[Please check issue #1 for futher information](https://git.2020.school/kaori_persson/new-package-traker/-/issues/1)'
+[2020.11.10] Depley firebase
 
 ## About unnecessary files
 
