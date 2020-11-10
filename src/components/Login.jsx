@@ -45,6 +45,10 @@ export default function Login() {
           <div className="header_textbox">
             <h2>{t("Package Tracker")}</h2>
 
+            <div className="test-instruction">
+              Please input "Jhon Doe" for the test.
+            </div>
+
             <div className="seachbox">
               <label>{t("Name")}</label>
               <input

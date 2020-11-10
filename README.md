@@ -8,10 +8,12 @@ You can search and track your packages status under.
 ## Installation
 
 Build foloder is "/build".  
-Route page is "/src/App.jsx"  
-Firebase : '[https://sda-package-tracker.web.app](https://sda-package-tracker.web.app)'
+Route page is "/src/App.jsx"
 
 ## User manual
+
+Please access to the following link.
+Firebase : '[https://sda-package-tracker.web.app](https://sda-package-tracker.web.app)'
 
 1. Search your packages by your name  
    Please input your name ("Jhon Doe" in this case) in the entry page to search and track your packages.
